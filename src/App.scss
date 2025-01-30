@@ -80,6 +80,14 @@ body {
       bottom: -20px;
       left: 50%;
       transform: translateX(-50%);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+      &:hover {
+        background: #23b29d;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        transform: translateX(-50%) translateY(-1px);
+      }
     }
 
     .copy {
@@ -90,6 +98,32 @@ body {
       background-color: transparent;
       border: none;
       color: var(--text-color);
+      position: relative;
+
+      &:hover {
+        color: var(--primary-color);
+        transition: color 0.3s;
+      }
+      &::after {
+        content: attr(copy-text);
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--text-color);
+        color: var(--background-color);
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
     }
 
     .author {

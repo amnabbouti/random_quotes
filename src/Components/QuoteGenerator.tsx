@@ -48,7 +48,7 @@ function QuoteGenerator(props: QuoteGeneratorProps) {
             )}
 
             <div className="copy-container">
-                <button onClick={copyToClipboard} className="copy">
+                <button onClick={copyToClipboard} className="copy" copy-text="Copy Quote">
                     <LuCopy />
                 </button>
             </div>
@@ -60,7 +60,7 @@ function QuoteGenerator(props: QuoteGeneratorProps) {
                 closeButton={false}
                 style={{ width: "200px" }}
             />
-            <a onClick={props.generateRandomIndex} className="randomize">
+            <a onClick={props.generateRandomIndex} className="randomize" >
                 <FaDiceFive />
             </a>
         </>
