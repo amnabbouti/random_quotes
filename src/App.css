@@ -1,0 +1,127 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=PT+Sans+Caption:wght@400;700&family=Readex+Pro:wght@160..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --background-color: #202632;
+  --card-background-color: #313a49;
+  --primary-color: #53ffab;
+  --secondary-color: rgba(255, 195, 0, 0.58);
+  --text-color: #cce1e7;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+}
+html .card,
+body .card {
+  display: grid;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  text-align: center;
+  max-width: 500px;
+  background-color: var(--card-background-color);
+  position: relative;
+}
+html .card h1,
+body .card h1 {
+  color: var(--primary-color);
+  font-size: 12px;
+  font-family: "Exo 2", sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+html .card .quote,
+body .card .quote {
+  color: var(--text-color);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.5;
+  font-family: "Readex Pro", serif;
+  text-wrap: balance;
+}
+html .card .copy-container,
+body .card .copy-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+html .card .copy-container::before, html .card .copy-container::after,
+body .card .copy-container::before,
+body .card .copy-container::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background-color: #3d485a;
+  margin: 0 10px;
+}
+html .card .randomize,
+body .card .randomize {
+  background-color: var(--primary-color);
+  color: black;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+html .card .copy,
+body .card .copy {
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+}
+html .card .author,
+body .card .author {
+  color: #669b9f;
+  font-size: 15px;
+  font-family: "Exo 2", sans-serif;
+  letter-spacing: 2px;
+}
+@media screen and (max-width: 768px) {
+  html body,
+  body body {
+    padding: 20px;
+  }
+  html .quote,
+  body .quote {
+    font-size: 18px;
+  }
+  html .randomize,
+  body .randomize {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  html .copy,
+  body .copy {
+    font-size: 20px;
+  }
+  html .author,
+  body .author {
+    font-size: 13px;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */
