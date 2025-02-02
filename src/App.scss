@@ -41,11 +41,11 @@ body {
   .content {
     display: grid;
     gap: 20px;
-    animation:
-      fadeIn 1.5s ease-in-out,
-      fadeOut 1.5s ease-in-out;
-    animation-delay: 0.3s;
     transition: color 0.3s ease-in-out;
+
+    &.fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
     &.fade-out {
       animation: fadeOut 1.5s ease-in-out;
@@ -78,8 +78,6 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    animation: fadeIn 1.5s ease-in-out;
-    animation-delay: 0.9s;
 
     &::before,
     &::after {
@@ -108,8 +106,8 @@ body {
     transform: translateX(-50%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition:
-      background 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
+            background 0.3s ease-in-out,
+            transform 0.3s ease-in-out;
 
     &:hover {
       background: #23b29d;

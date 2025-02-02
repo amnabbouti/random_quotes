@@ -39,9 +39,10 @@ body {
 .card .content {
   display: grid;
   gap: 20px;
-  animation: fadeIn 1.5s ease-in-out, fadeOut 1.5s ease-in-out;
-  animation-delay: 0.3s;
   transition: color 0.3s ease-in-out;
+}
+.card .content.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
 }
 .card .content.fade-out {
   animation: fadeOut 1.5s ease-in-out;
@@ -69,8 +70,6 @@ body {
   display: flex;
   align-items: center;
   width: 100%;
-  animation: fadeIn 1.5s ease-in-out;
-  animation-delay: 0.9s;
 }
 .card .copy-container::before, .card .copy-container::after {
   content: "";
