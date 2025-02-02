@@ -1,6 +1,6 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=PT+Sans+Caption:wght@400;700&family=Readex+Pro:wght@160..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900&display=swap");
 :root {
   --background-color: #202632;
   --card-background-color: #313a49;
@@ -18,8 +18,8 @@ body {
   align-items: center;
   background-color: var(--background-color);
 }
-html .card,
-body .card {
+
+.card {
   display: grid;
   gap: 30px;
   justify-content: center;
@@ -31,9 +31,22 @@ body .card {
   max-width: 500px;
   background-color: var(--card-background-color);
   position: relative;
+  transition: box-shadow 0.3s ease-in-out;
 }
-html .card h1,
-body .card h1 {
+.card:hover {
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+.card .content {
+  display: grid;
+  gap: 20px;
+  animation: fadeIn 1.5s ease-in-out, fadeOut 1.5s ease-in-out;
+  animation-delay: 0.3s;
+  transition: color 0.3s ease-in-out;
+}
+.card .content.fade-out {
+  animation: fadeOut 1.5s ease-in-out;
+}
+.card .title {
   color: var(--primary-color);
   font-size: 12px;
   font-family: "Exo 2", sans-serif;
@@ -41,8 +54,7 @@ body .card h1 {
   text-transform: uppercase;
   font-weight: 500;
 }
-html .card .quote,
-body .card .quote {
+.card .quote {
   color: var(--text-color);
   font-size: 22px;
   font-weight: 500;
@@ -50,23 +62,24 @@ body .card .quote {
   font-family: "Readex Pro", serif;
   text-wrap: balance;
 }
-html .card .copy-container,
-body .card .copy-container {
+.card .quote:hover {
+  color: var(--primary-color);
+}
+.card .copy-container {
   display: flex;
   align-items: center;
   width: 100%;
+  animation: fadeIn 1.5s ease-in-out;
+  animation-delay: 0.9s;
 }
-html .card .copy-container::before, html .card .copy-container::after,
-body .card .copy-container::before,
-body .card .copy-container::after {
+.card .copy-container::before, .card .copy-container::after {
   content: "";
   flex: 1;
   height: 2px;
   background-color: #3d485a;
   margin: 0 10px;
 }
-html .card .randomize,
-body .card .randomize {
+.card .randomize {
   background-color: var(--primary-color);
   color: black;
   width: 50px;
@@ -84,14 +97,12 @@ body .card .randomize {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-html .card .randomize:hover,
-body .card .randomize:hover {
+.card .randomize:hover {
   background: #23b29d;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
   transform: translateX(-50%) translateY(-1px);
 }
-html .card .copy,
-body .card .copy {
+.card .copy {
   justify-content: center;
   align-items: center;
   font-size: 25px;
@@ -100,14 +111,12 @@ body .card .copy {
   border: none;
   color: var(--text-color);
   position: relative;
+  transition: color 0.3s ease-in-out;
 }
-html .card .copy:hover,
-body .card .copy:hover {
+.card .copy:hover {
   color: var(--primary-color);
-  transition: color 0.3s;
 }
-html .card .copy::after,
-body .card .copy::after {
+.card .copy::after {
   content: attr(copy-text);
   position: absolute;
   bottom: -30px;
@@ -121,41 +130,58 @@ body .card .copy::after {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease-in-out;
 }
-html .card .copy:hover::after,
-body .card .copy:hover::after {
+.card .copy:hover::after {
   opacity: 1;
 }
-html .card .author,
-body .card .author {
-  color: #669b9f;
-  font-size: 15px;
-  font-family: "Exo 2", sans-serif;
-  letter-spacing: 2px;
+
+.loading-bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  animation: loading 0.7s infinite;
+  transform-origin: left;
+}
+@keyframes loading {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 @media screen and (max-width: 768px) {
-  html body,
-  body body {
+  body {
     padding: 20px;
   }
-  html .quote,
-  body .quote {
+  .card .quote {
     font-size: 18px;
   }
-  html .randomize,
-  body .randomize {
+  .card .randomize {
     width: 40px;
     height: 40px;
     font-size: 20px;
   }
-  html .copy,
-  body .copy {
+  .card .copy {
     font-size: 20px;
-  }
-  html .author,
-  body .author {
-    font-size: 13px;
   }
 }
 

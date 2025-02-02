@@ -1,6 +1,6 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=PT+Sans+Caption:wght@400;700&family=Readex+Pro:wght@160..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900&display=swap");
 
 :root {
   --background-color: #202632;
@@ -18,127 +18,186 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--background-color);
+}
 
-  .card {
+.card {
+  display: grid;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  text-align: center;
+  max-width: 500px;
+  background-color: var(--card-background-color);
+  position: relative;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 8px 16px var(--shadow-color);
+  }
+
+  .content {
     display: grid;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px var(--shadow-color);
-    text-align: center;
-    max-width: 500px;
-    background-color: var(--card-background-color);
-    position: relative;
+    gap: 20px;
+    animation:
+      fadeIn 1.5s ease-in-out,
+      fadeOut 1.5s ease-in-out;
+    animation-delay: 0.3s;
+    transition: color 0.3s ease-in-out;
 
-    h1 {
-      color: var(--primary-color);
-      font-size: 12px;
-      font-family: "Exo 2", sans-serif;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    .quote {
-      color: var(--text-color);
-      font-size: 22px;
-      font-weight: 500;
-      line-height: 1.5;
-      font-family: "Readex Pro", serif;
-      text-wrap: balance;
-    }
-
-    .copy-container {
-      display: flex;
-      align-items: center;
-      width: 100%;
-
-      &::before,
-      &::after {
-        content: "";
-        flex: 1;
-        height: 2px;
-        background-color: #3d485a;
-        margin: 0 10px;
-      }
-    }
-
-    .randomize {
-      background-color: var(--primary-color);
-      color: black;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 25px;
-      border-radius: 50%;
-      cursor: pointer;
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
-
-      &:hover {
-        background: #23b29d;
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-        transform: translateX(-50%) translateY(-1px);
-      }
-    }
-
-    .copy {
-      justify-content: center;
-      align-items: center;
-      font-size: 25px;
-      cursor: pointer;
-      background-color: transparent;
-      border: none;
-      color: var(--text-color);
-      position: relative;
-
-      &:hover {
-        color: var(--primary-color);
-        transition: color 0.3s;
-      }
-      &::after {
-        content: attr(copy-text);
-        position: absolute;
-        bottom: -30px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: var(--text-color);
-        color: var(--background-color);
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 12px;
-        white-space: nowrap;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s;
-      }
-
-      &:hover::after {
-        opacity: 1;
-      }
-    }
-
-    .author {
-      color: #669b9f;
-      font-size: 15px;
-      font-family: "Exo 2", sans-serif;
-      letter-spacing: 2px;
+    &.fade-out {
+      animation: fadeOut 1.5s ease-in-out;
     }
   }
 
-  @media screen and (max-width: 768px) {
-    body {
-      padding: 20px;
+  .title {
+    color: var(--primary-color);
+    font-size: 12px;
+    font-family: "Exo 2", sans-serif;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .quote {
+    color: var(--text-color);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.5;
+    font-family: "Readex Pro", serif;
+    text-wrap: balance;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  .copy-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 1.5s ease-in-out;
+    animation-delay: 0.9s;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 2px;
+      background-color: #3d485a;
+      margin: 0 10px;
+    }
+  }
+
+  .randomize {
+    background-color: var(--primary-color);
+    color: black;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition:
+      background 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+
+    &:hover {
+      background: #23b29d;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      transform: translateX(-50%) translateY(-1px);
+    }
+  }
+
+  .copy {
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    position: relative;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--primary-color);
     }
 
+    &::after {
+      content: attr(copy-text);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--text-color);
+      color: var(--background-color);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
+.loading-bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  animation: loading 0.7s infinite;
+
+  @keyframes loading {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  transform-origin: left;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .card {
     .quote {
       font-size: 18px;
     }
@@ -151,10 +210,6 @@ body {
 
     .copy {
       font-size: 20px;
-    }
-
-    .author {
-      font-size: 13px;
     }
   }
 }
