@@ -32,8 +32,7 @@ function QuoteGenerator() {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(advice).then(() => {
       toast(
-        <div className={'notification'}
-        >
+        <div className={"notification"}>
           <span style={{ fontSize: "0.8rem" }}>copied to clipboard 🎉</span>
           <FaCheckCircle
             style={{ marginTop: "5px", color: "#4CAF50", fontSize: "1.5rem" }}
@@ -77,7 +76,6 @@ function QuoteGenerator() {
         pauseOnHover={false}
         draggable={false}
         closeButton={false}
-
       />
       <a onClick={handleRandomizeClick} className="randomize">
         <FaDiceFive />
