@@ -19,7 +19,7 @@ function QuoteGenerator() {
         }
     }, [data]);
 
-    if (error) return <div>Failed to load quote</div>;
+    if (error) return <div className="content">Failed to load data</div>;
 
     const advice = data?.slip?.advice;
     const adviceId = data?.slip?.id;
