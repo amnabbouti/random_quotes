@@ -1,7 +1,7 @@
 import './App.scss';
 import QuoteGenerator from './Components/QuoteGenerator';
 
-function App() {
+const App = () => {
     return (
         <>
             <div className="card">
