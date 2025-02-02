@@ -1,6 +1,4 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=PT+Sans+Caption:wght@400;700&family=Readex+Pro:wght@160..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900&display=swap");
 :root {
   --background-color: #202632;
   --card-background-color: #313a49;
@@ -43,19 +41,10 @@ body {
   position: relative;
   transition: box-shadow 0.3s ease-in-out;
 }
-.card:hover {
-  box-shadow: 0 8px 16px var(--shadow-color);
-}
 .card .content {
   display: grid;
   gap: 20px;
   transition: color 0.3s ease-in-out;
-}
-.card .content.fade-in {
-  animation: fadeIn 1.5s ease-in-out;
-}
-.card .content.fade-out {
-  animation: fadeOut 1.5s ease-in-out;
 }
 .card .title {
   color: var(--primary-color);
@@ -79,7 +68,6 @@ body {
 .card .copy-container {
   display: flex;
   align-items: center;
-  width: 100%;
 }
 .card .copy-container::before, .card .copy-container::after {
   content: "";
@@ -90,7 +78,6 @@ body {
 }
 .card .randomize {
   background-color: var(--primary-color);
-  color: black;
   width: 50px;
   height: 50px;
   display: flex;
@@ -103,15 +90,13 @@ body {
   bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 .card .randomize:hover {
-  background: #23b29d;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
   transform: translateX(-50%) translateY(-1px);
 }
 .card .copy {
+  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 25px;
@@ -134,7 +119,6 @@ body {
   background-color: var(--text-color);
   color: var(--background-color);
   padding: 5px 10px;
-  border-radius: 5px;
   font-size: 12px;
   white-space: nowrap;
   opacity: 0;
@@ -169,28 +153,12 @@ body {
     opacity: 1;
   }
 }
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
 @media screen and (max-width: 768px) {
   body {
     padding: 20px;
   }
   .card .quote {
     font-size: 18px;
-  }
-  .card .randomize {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-  .card .copy {
-    font-size: 20px;
   }
 }
 
